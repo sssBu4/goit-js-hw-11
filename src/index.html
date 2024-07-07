@@ -4,17 +4,28 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>homework-10</title>
+    <title>hw-11</title>
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <ul class="list">
-      <li class="list-item">
-        <a href="./1-timer.html" class="link">Go to timer</a>
-      </li>
-      <li class="list-item">
-        <a href="./2-snackbar.html" class="link">Go to snackbar</a>
-      </li>
-    </ul>
+    <section>
+      <div class="container">
+        <form class="form-search-img">
+          <input
+            type="text"
+            name="search-input"
+            id="search"
+            placeholder="Search image..."
+            class="search-input"
+          />
+          <button type="submit" class="search-btn">Search</button>
+        </form>
+
+        <span class="loader is-hidden"></span>
+        <ul class="list-results"></ul>
+      </div>
+    </section>
+
+    <script type="module" src="./main.js"></script>
   </body>
 </html>
