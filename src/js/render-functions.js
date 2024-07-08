@@ -9,6 +9,7 @@ export function showError(message) {
     });
 }
 
+
 export function showInfo(message) {
     iziToast.info({
         title: 'Info',
