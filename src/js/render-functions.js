@@ -1,44 +1,39 @@
-'use strict';
+import iziToast from "izitoast";
+import "izitoast/dist/css/iziToast.min.css";
 
-export function createGallery(hitsArray) {
-  const gallery = hitsArray
-    .map(
-      ({
-        largeImageURL,
-        webformatURL,
-        tags,
-        likes,
-        views,
-        comments,
-        downloads,
-      }) =>
-        `<li class="item-results">
-          <a href="${largeImageURL}" class="gallery-link">
-            <img src="${webformatURL}" alt="${tags}" class="gallery-img"/>
-          </a>
-          <div class="wrap-info">
-            <ul class="list-info">
-              <li class="item-info">
-                <p class="headline-info">Likes</p>
-                <p class="text-info">${likes}</p>
-              </li>
-              <li class="item-info">
-                <p class="headline-info">Views</p>
-                <p class="text-info">${views}</p>
-              </li>
-              <li class="item-info">
-                <p class="headline-info">Comments</p>
-                <p class="text-info">${comments}</p>
-              </li>
-              <li class="item-info">
-                <p class="headline-info">Downloads</p>
-                <p class="text-info">${downloads}</p>
-              </li>
-            </ul>
-          </div>
-        </li>`
-    )
-    .join('');
+export function showError(message) {
+    iziToast.error({
+        title: 'Error',
+        message: message,
+        position: 'topRight'
+    });
+}
 
-  document.querySelector('.list-results').innerHTML = gallery;
+export function showInfo(message) {
+    iziToast.info({
+        title: 'Info',
+        message: message,
+        position: 'topRight'
+    });
+}
+
+export function renderGallery(images) {
+    const gallery = document.querySelector('.gallery');
+    gallery.innerHTML = '';
+
+    const galleryContent = images.map(image => `
+        <a href="${image.largeImageURL}" class="gallery-item">
+            <div class="image-card">
+                <img src="${image.webformatURL}" alt="${image.tags}">
+                <div class="info">
+                    <p>Likes: ${image.likes}</p>
+                    <p>Views: ${image.views}</p>
+                    <p>Comments: ${image.comments}</p>
+                    <p>Downloads: ${image.downloads}</p>
+                </div>
+            </div>
+        </a>
+    `).join('');
+
+    gallery.innerHTML = galleryContent;
 }

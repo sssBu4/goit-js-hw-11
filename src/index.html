@@ -4,27 +4,19 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>hw-11</title>
+    <title>Image search app</title>
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <section>
-      <div class="container">
-        <form class="form-search-img">
-          <input
-            type="text"
-            name="search-input"
-            id="search"
-            placeholder="Search image..."
-            class="search-input"
-          />
-          <button type="submit" class="search-btn">Search</button>
-        </form>
-
-        <span class="loader is-hidden"></span>
-        <ul class="list-results"></ul>
+    <form class="search-form">
+      <div class="form-group">
+        <input type="text" class="form-control" name="query" />
       </div>
-    </section>
+
+      <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+    <span id="loading" class="loader" style="display: none"></span>
+    <ul class="gallery"></ul>
 
     <script type="module" src="./main.js"></script>
   </body>
